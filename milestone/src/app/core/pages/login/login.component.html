@@ -1,0 +1,44 @@
+<form *ngIf="!isLogin" [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="login-form">
+  <mat-form-field>
+    <mat-label>Email</mat-label>
+    <input
+      type="email"
+      matInput
+      formControlName="email"
+      placeholder="Enter your email"
+    />
+    <mat-error
+      *ngIf="
+        loginForm.controls.email.hasError('email') &&
+        !loginForm.controls.email.hasError('required')
+      "
+      >Please enter a valid email address</mat-error
+    >
+    <mat-error *ngIf="loginForm.controls.email.hasError('required')"
+      >Email is <strong>required</strong></mat-error
+    >
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Password</mat-label>
+    <input
+      type="password"
+      matInput
+      formControlName="password"
+      placeholder="Enter your password"
+    />
+    <mat-error *ngIf="loginForm.controls.password.hasError('required')"
+      >Password is <strong>required</strong></mat-error
+    >
+  </mat-form-field>
+  <button [disabled]="loginForm.invalid||lockBtn" type="submit"  mat-raised-button>
+    Sign In
+  </button>
+  <button type="button" mat-raised-button routerLink="/signup">
+    I`m not have account
+  </button>
+</form>
+
+<div *ngIf="isLogin" class="logout">
+<p>You really want exit?</p>
+<button mat-raised-button (click)="logOut()">Yes</button>
+</div>

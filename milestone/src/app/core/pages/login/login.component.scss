@@ -1,0 +1,19 @@
+.login-form {
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  max-width: 400px;
+}
+
+button {
+  margin: 10px auto;
+  max-width: 200px;
+}
+
+.logout {
+  display: flex;
+  flex-direction: column;
+  width: fit-content;
+  margin: 10px auto;
+  font-size: 2em;
+}

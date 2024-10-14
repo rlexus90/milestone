@@ -1,0 +1,28 @@
+<div class="container">
+
+	<div class="group-wrapper">
+		<p style="font-size: 1.5em; text-align: center;">Group list</p>
+		<div class="groups">
+			<app-groupItem
+			*ngFor="let group of groupsData?.Items"
+			[group]="group"
+			[user]="user.uid??''"
+			[callbackFn]="delCallback"
+			></app-groupItem>
+		</div>
+		<button mat-raised-button [disabled]="!canUpdate" (click)="updateGroups()">{{time?time:'Update'}}</button>
+		<button mat-raised-button (click)="createGroup()">Greate Group</button>
+	</div>
+
+	<div class="users-wraper">
+		<p style="font-size: 1.5em; text-align: center;">Users list</p>
+		<div class="users">
+			<p *ngFor="let oneUser of usersList?.Items"
+(click)="goToConvers(oneUser)"
+			[ngClass]="{'cheked':conversationsList?.includes(oneUser.uid.S),
+		'user':true}"
+			>{{oneUser.name.S}}</p>
+		</div>
+		<button mat-raised-button [disabled]="usersUpdTimer" (click)="updateUsers()">{{usersUpdTimer?usersUpdTimer:'Update'}}</button>
+	</div>
+	</div>

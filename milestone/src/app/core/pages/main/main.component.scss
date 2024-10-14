@@ -1,0 +1,48 @@
+.container {
+  display: flex;
+  margin: 10px;
+  justify-content: space-around;
+}
+
+.group-wrapper {
+  flex-basis: 400px;
+  max-width: 500px;
+  padding: 15px;
+  height: 85vh;
+}
+.groups {
+  padding: 15px;
+  height: 90%;
+  overflow: auto;
+  border: 2px solid black;
+}
+
+button {
+  margin: 10px;
+}
+
+.users-wraper {
+  margin: 0 10px;
+  flex-basis: 400px;
+  max-width: 500px;
+  padding: 15px;
+  height: 85vh;
+}
+
+.users {
+  padding: 15px;
+  height: 90%;
+  overflow: auto;
+  border: 2px solid black;
+}
+
+app-groupItem {
+  cursor: pointer;
+}
+
+.user {
+  cursor: pointer;
+}
+.user.cheked {
+  color: red;
+}

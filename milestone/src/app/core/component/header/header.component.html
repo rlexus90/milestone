@@ -1,0 +1,42 @@
+<nav *ngIf="isLogin">
+  <ul clas="navigation">
+    <li>
+      <a
+        routerLink="/signin"
+        routerLinkActive="active"
+        ariaCurrentWhenActive="page"
+        >Logout</a
+      >
+    </li>
+		<li>
+      <a
+        routerLink="/main"
+        routerLinkActive="active"
+        ariaCurrentWhenActive="page"
+        >Main</a
+      >
+    </li>
+		<li>
+      <a
+        routerLink="/profile"
+        routerLinkActive="active"
+        ariaCurrentWhenActive="page"
+        >Profile</a
+      >
+    </li>
+  </ul>
+</nav>
+
+<nav *ngIf="!isLogin">
+  <ul clas="nav">
+    <li>
+      <a
+        routerLink="/signin"
+        routerLinkActive="active"
+        ariaCurrentWhenActive="page"
+        >Sign-In/Sign-Up</a
+      >
+    </li>
+  </ul>
+</nav>
+

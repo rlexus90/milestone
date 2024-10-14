@@ -1,0 +1,11 @@
+<div class="container">
+	<div [formGroup]="form" class="text-block">
+		<p><strong>user id: </strong>{{profile?.uid?.S}}</p>
+		<p><strong>email address: </strong>{{profile?.email?.S}}</p>
+		<p><strong>creation time: </strong>{{profile?.createdAt?.S | date:'d/M/yy, h:mm a'}}</p>
+		<p style="display: inline;"><strong>user name: </strong></p>
+		<input formControlName="name" type="text" >
+	</div>
+	<button mat-raised-button (click)="editBtnHandle()" [disabled]="disabledBtn">{{canEdit?'Cancel':'Edit Name'}}</button>
+	<button *ngIf="canEdit" mat-raised-button (click)="saveName()" [disabled]="disabledBtn">Save</button>
+</div>

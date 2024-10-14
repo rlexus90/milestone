@@ -1,0 +1,36 @@
+button {
+  margin: 10px;
+}
+.send-btn {
+  font-size: 2.5em;
+  padding-left: 0.5em;
+  width: auto;
+  height: auto;
+  color: rgb(27, 138, 235);
+}
+
+.messages {
+  margin: 15px 0;
+  max-height: 75vh;
+  overflow: auto;
+}
+
+.flex-wrap {
+  display: flex;
+  flex-direction: column;
+}
+.send-message {
+  flex: 0 0 80px;
+  justify-self: end;
+  .input {
+    width: 300px;
+  }
+}
+
+.send-btn:hover {
+  transform: scale(1.2);
+}
+
+.send-btn:active {
+  transform: scale(0.9);
+}

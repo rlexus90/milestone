@@ -1,0 +1,6 @@
+<div [ngClass]="{'right-side':!message.leftSide,
+}">
+	<p class="date">{{message.createdAt|date:'yyyy/MM/dd hh:mm'}}</p>
+	<p class="message"><span>{{message.authorID}}: 
+		</span>{{message.message}}</p>
+</div>

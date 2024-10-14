@@ -1,0 +1,21 @@
+<div class="wrapper">
+	<button mat-raised-button [routerLink]="['/main']">Return back</button>
+	<button mat-raised-button [disabled]="timer" (click)="updateDialog()">{{timer?timer:'Update'}}</button>
+	<div class="flex-wrap">
+		<div class="messages">
+			<div *ngFor="let message of messages" >
+			<app-message [message]="message"></app-message>
+			</div>
+		</div>
+		<div class="send-message">
+			<mat-form-field class="input">
+				<mat-label>type message</mat-label>
+				<input matInput type="text" [(ngModel)]="text">
+					<button *ngIf="text" matSuffix mat-icon-button aria-label="Clear" (click)="text=''">
+						<mat-icon>close</mat-icon>
+					</button>
+			</mat-form-field>
+			<mat-icon class="send-btn" (click)="sendMessage()">send</mat-icon>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,5 @@
+<p [routerLink]="['/group',group.id.S]">{{group.name.S}}
+	<span *ngIf="group.createdBy.S === user" 
+	class="material-icons" (click)="callbackFn(group.id.S,group.name.S)">
+	close
+	</span></p>

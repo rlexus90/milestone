@@ -1,0 +1,80 @@
+<form [formGroup]="registrationForm" (ngSubmit)="onSubmit()" class="registration-form">
+  <mat-form-field>
+    <mat-label>Name</mat-label>
+    <input
+      type="text"
+      matInput
+      formControlName="name"
+      placeholder="Enter your name"
+    />
+    <mat-error *ngIf="registrationForm.controls.name.hasError('required')"
+      >Name is <strong>required</strong></mat-error
+    >
+    <mat-error
+      *ngIf="
+        registrationForm.controls.name.hasError('maxlength') &&
+        !registrationForm.controls.name.hasError('required')
+      "
+      >Too long name</mat-error
+    >
+    <mat-error
+      *ngIf="
+        registrationForm.controls.name.hasError('pattern') &&
+        !registrationForm.controls.name.hasError('required')
+      "
+      >Name must have only letter and spaces</mat-error
+    >
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Email</mat-label>
+    <input
+      type="email"
+      matInput
+      formControlName="email"
+      placeholder="Enter your email"
+    />
+    <mat-error
+      *ngIf="
+        registrationForm.controls.email.hasError('email') &&
+        !registrationForm.controls.email.hasError('required')
+      "
+      >Please enter a valid email address</mat-error
+    >
+    <mat-error *ngIf="registrationForm.controls.email.hasError('required')"
+      >Email is <strong>required</strong></mat-error
+    >
+    <mat-hint *ngIf="global.getEmailList().includes(registrationForm.controls.email.value??'')"
+    >User already exists</mat-hint
+  >
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Password</mat-label>
+    <input
+      type="password"
+      matInput
+      formControlName="password"
+      placeholder="Enter your password"
+    />
+    <mat-error *ngIf="registrationForm.controls.password.hasError('required')"
+      >Password is <strong>required</strong></mat-error
+    >
+    <mat-error
+      *ngIf="
+        registrationForm.controls.password.hasError('pattern') &&
+        !registrationForm.controls.name.hasError('required')
+      "
+      >Password must have minimum 8 symbols that include at least 1 capital
+      letter, at least 1 digit and at least 1 special symbol
+    </mat-error>
+  </mat-form-field>
+  <button
+    [disabled]="registrationForm.invalid||global.getEmailList().includes(registrationForm.controls.email.value??'')"
+    type="submit"
+    mat-raised-button
+  >
+    Sign Up
+  </button>
+  <button type="button" mat-raised-button routerLink="/signin">
+    I`m have account
+  </button>
+</form>
